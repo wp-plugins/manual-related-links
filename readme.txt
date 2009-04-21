@@ -3,8 +3,8 @@ Contributors: aaroncampbell
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal%40xavisys%2ecom&item_name=Manual%20Related%20Links&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
 Tags: related,links,posts
 Requires at least: 2.7
-Tested up to: 2.7.1
-Stable tag: 1.0.0
+Tested up to: 2.8
+Stable tag: 1.0.1
 
 A related links plugin that allows you to manually specify links, even if they're on another site. Requires PHP5.
 

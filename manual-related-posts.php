@@ -3,13 +3,15 @@
  * Plugin Name: Manual Related Links
  * Plugin URI: http://xavisys.com/2009/04/manual-related-links/
  * Description: A related links plugin that allows you to manually specify links, even if they're on another site
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Aaron D. Campbell
  * Author URI: http://xavisys.com/
  */
 /**
  *	Changelog:
- * 		04/05/2008 - 1.0.0:
+ * 		04/20/2009 - 1.0.1:
+ *			- Some people were having a problem losing related links during an auto save.  Some sanity checks have been added.
+ * 		04/05/2009 - 1.0.0:
  *			- First public release
  */
 /**
@@ -88,9 +90,11 @@ class manualRelatedLinks {
 	}
 
 	public function addMetaData($post_ID) {
-		$_POST['_manual_related_links'] = array_filter( $_POST['_manual_related_links'] );
-		if (!add_post_meta($post_ID, '_manual_related_links', $_POST['_manual_related_links'], true)) {
-			update_post_meta($post_ID, '_manual_related_links', $_POST['_manual_related_links']);
+		if ( !empty($_POST['_manual_related_links']) && is_array($_POST['_manual_related_links']) ) {
+			$_POST['_manual_related_links'] = array_filter( $_POST['_manual_related_links'] );
+			if (!add_post_meta($post_ID, '_manual_related_links', $_POST['_manual_related_links'], true)) {
+				update_post_meta($post_ID, '_manual_related_links', $_POST['_manual_related_links']);
+			}
 		}
 	}
 
